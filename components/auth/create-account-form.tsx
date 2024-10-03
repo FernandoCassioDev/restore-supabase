@@ -1,4 +1,4 @@
-"use cliente";
+"use client";
 
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -37,6 +37,7 @@ const formSchema = z.object({
 });
 
 export function CreateAccountForm() {
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {

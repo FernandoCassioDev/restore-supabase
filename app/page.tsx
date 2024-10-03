@@ -40,16 +40,18 @@ export default async function Home() {
             value="create-account"
             className="transition-all delay-150"
           >
-            <CreateAccountForm />
+            Account
           </TabsTrigger>
           <TabsTrigger value="login" className="transition-all delay-150">
-            <LoginAccountForm />
+            Login
           </TabsTrigger>
         </TabsList>
         <TabsContent value="create-account">
           <CreateAccountForm />
         </TabsContent>
-        <TabsContent value="login"></TabsContent>
+        <TabsContent value="login">
+          <LoginAccountForm />
+        </TabsContent>
       </Tabs>
     </div>
   );
