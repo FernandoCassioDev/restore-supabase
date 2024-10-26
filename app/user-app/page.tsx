@@ -3,8 +3,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 
-export default async function UserApp(){
-
+export default async function UserApp() {
   let loggedIn = false;
 
   try {
@@ -20,5 +19,9 @@ export default async function UserApp(){
     if (!loggedIn) redirect("/", RedirectType.replace);
   }
 
-  return <h1><UserNav /></h1>
+  return (
+    <h1>
+      <UserNav />
+    </h1>
+  );
 }
