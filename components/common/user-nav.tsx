@@ -1,9 +1,16 @@
+"user client";
+
 import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
+  User,
+  createClientComponentClient,
+} from "@supabase/auth-helpers-nextjs";
+
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { UserIcon } from "lucide-react";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,11 +20,38 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
+import { error } from "console";
 
 export function UserNav() {
+  const router = useRouter();
+
+  const [user, setUser] = useState<User | null>(null);
+
+  const supabase = createClientComponentClient();
+
+  const getUser = async () => {
+    const {} = await supabase.auth.getUser();
+
+    if (error) {
+      console.log("user-nav: ", error);
+    } else {
+      setUser(user);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  });
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    router.refresh();
+  };
   return (
-    <DropdownMenu>
+    <>
+    {user && (
+      <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8">
@@ -58,5 +92,7 @@ export function UserNav() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+    )}
+    </>
+  );
 }
