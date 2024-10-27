@@ -20,7 +20,6 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { error } from "console";
 
 export function UserNav() {
   const router = useRouter();
@@ -30,7 +29,10 @@ export function UserNav() {
   const supabase = createClientComponentClient();
 
   const getUser = async () => {
-    const {} = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
 
     if (error) {
       console.log("user-nav: ", error);
