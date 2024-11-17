@@ -1,4 +1,5 @@
 import { UserNav } from "@/components/common/user-nav";
+import UserAppHeader from "@/components/user-app/user-app-header";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
@@ -23,6 +24,7 @@ export default async function UserApp() {
     <>
     <div className="hidden md:block">
       {/* <Menu /> */}
+      <UserAppHeader />
       <div className="border-t">
         <div className="bg-background">
           <div className="grid lg:grid-cols-5">
