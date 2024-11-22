@@ -56,7 +56,7 @@ export function UserNav() {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="relative h-8 w-8 rounded-full">
               <Avatar className="h-8 w-8">
-                //Colocar avatar padrão 
+                //Colocar avatar padrão
                 <AvatarImage src="/avatars/01.png" alt="Profile Picture" />
                 <AvatarFallback>SC</AvatarFallback>
               </Avatar>
