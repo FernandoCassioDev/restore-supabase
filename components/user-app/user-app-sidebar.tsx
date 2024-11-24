@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function UserAppSidebar() {
-  return (
-    <div>user-app-sidebar</div>
-  )
+  return <div>user-app-sidebar</div>;
 }
 
-export default UserAppSidebar
+export default UserAppSidebar;
