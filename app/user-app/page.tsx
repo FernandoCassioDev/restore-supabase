@@ -1,8 +1,19 @@
-import { UserNav } from "@/components/common/user-nav";
+import { Button } from "@/components/ui/button";
+
 import UserAppHeader from "@/components/user-app/user-app-header";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
+
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs";
+
+import { Separator } from "@/components/ui/separator";
+import { PlusCircleIcon } from "lucide-react";
 
 export default async function UserApp() {
   let loggedIn = false;
@@ -22,7 +33,7 @@ export default async function UserApp() {
 
   return (
     <>
-    <div className="hidden md:block">
+    <div className=" md:block">
       {/* <Menu /> */}
       <UserAppHeader />
       <div className="border-t">
@@ -31,7 +42,7 @@ export default async function UserApp() {
             {/* <Sidebar playlists={playlists} className="hidden lg:block" /> */}
             <div className="col-span-3 lg:col-span-4 lg:border-l">
               <div className="h-full px-4 py-6 lg:px-8">
-                {/* <Tabs defaultValue="music" className="h-full space-y-6">
+                <Tabs defaultValue="music" className="h-full space-y-6">
                   <div className="space-between flex items-center">
                     <TabsList>
                       <TabsTrigger value="music" className="relative">
@@ -44,7 +55,7 @@ export default async function UserApp() {
                     </TabsList>
                     <div className="ml-auto mr-4">
                       <Button>
-                        <PlusCircle />
+                        <PlusCircleIcon />
                         Add music
                       </Button>
                     </div>
@@ -65,7 +76,8 @@ export default async function UserApp() {
                     </div>
                     <Separator className="my-4" />
                     <div className="relative">
-                      <ScrollArea>
+                      {/* Lista */}
+                      {/* <ScrollArea>
                         <div className="flex space-x-4 pb-4">
                           {listenNowAlbums.map((album) => (
                             <AlbumArtwork
@@ -79,7 +91,7 @@ export default async function UserApp() {
                           ))}
                         </div>
                         <ScrollBar orientation="horizontal" />
-                      </ScrollArea>
+                      </ScrollArea> */}
                     </div>
                     <div className="mt-6 space-y-1">
                       <h2 className="text-2xl font-semibold tracking-tight">
@@ -91,7 +103,8 @@ export default async function UserApp() {
                     </div>
                     <Separator className="my-4" />
                     <div className="relative">
-                      <ScrollArea>
+                      {/* Lista 2 */}
+                      {/* <ScrollArea>
                         <div className="flex space-x-4 pb-4">
                           {madeForYouAlbums.map((album) => (
                             <AlbumArtwork
@@ -105,7 +118,7 @@ export default async function UserApp() {
                           ))}
                         </div>
                         <ScrollBar orientation="horizontal" />
-                      </ScrollArea>
+                      </ScrollArea> */}
                     </div>
                   </TabsContent>
                   <TabsContent
@@ -123,9 +136,9 @@ export default async function UserApp() {
                       </div>
                     </div>
                     <Separator className="my-4" />
-                    <PodcastEmptyPlaceholder />
+                    {/* <PodcastEmptyPlaceholder /> */}
                   </TabsContent>
-                </Tabs> */}
+                </Tabs>
               </div>
             </div>
           </div>
