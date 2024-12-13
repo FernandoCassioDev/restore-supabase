@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { Separator } from "@/components/ui/separator";
 import { PlusCircleIcon } from "lucide-react";
+import ImageUploadPlaceholder from "@/components/user-app/img-upload-placeholder";
 
 export default async function UserApp() {
   let loggedIn = false;
@@ -62,15 +63,16 @@ export default async function UserApp() {
                       <div className="flex items-center justify-between">
                         <div className="space-y-1">
                           <h2 className="text-2xl font-semibold tracking-tight">
-                            Listen Now
+                            Photo Collection
                           </h2>
                           <p className="text-sm text-muted-foreground">
-                            Top picks for you. Updated daily.
+                            The Photos you alredy enhanced
                           </p>
                         </div>
                       </div>
                       <Separator className="my-4" />
                       <div className="relative">
+                        <ImageUploadPlaceholder />
                         {/* Lista */}
                         {/* <ScrollArea>
                         <div className="flex space-x-4 pb-4">
