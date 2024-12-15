@@ -8,8 +8,8 @@ import { redirect, RedirectType } from "next/navigation";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { Separator } from "@/components/ui/separator";
-import { PlusCircleIcon } from "lucide-react";
 import ImageUploadPlaceholder from "@/components/user-app/img-upload-placeholder";
+import { PlusCircleIcon } from "lucide-react";
 
 export default async function UserApp() {
   let loggedIn = false;
